@@ -1,7 +1,3 @@
-$PSVersion = $PSVersionTable.PSVersion.Major
-. 'C:\projects\get-geoip\Get-GeoIP\Get-GeoIP.ps1'
-
-#Unit test example
 Describe "Get-GeoIP PS$PSVersion Unit tests" {
 
    It 'Should Return Google LLC' {
