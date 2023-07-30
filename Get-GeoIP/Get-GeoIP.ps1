@@ -1,13 +1,13 @@
 function Get-GeoIP {
     <#
     .Synopsis
-    Resolve IPAddress Geo IP Location
+    Lookup IP Address Geo IP Location
     .Description
-    This Function Queries The IP API With Supplied IPAdderess And Returns Geo IP Location
+    This Function Queries The IP API With Supplied IP Adderess And Returns Geo IP Location
     .Parameter IPAddress
-    IPAddressTo Be Resolved
+    IP Address To Lookup
     .Example
-    Get-GeoIP -IPAddress 96.23.36.24
+    Get-GeoIP -IPAddress 8.8.8.8
     .Example
     $IP = Get-NetStat | select -ExpandProperty ForeignAddressIP | Where-Object {$_ -notlike '`['}
     Get-GeoIP -IPAddress $IP
@@ -28,7 +28,7 @@ function Get-GeoIP {
     process {	
         foreach ($IP in $IPAddress) {
             $CurrentIP++
-            Write-Progress -Activity "Resoving IPAddress: $IP" -Status "$CurrentIP of $($IPAddress.Count)" -PercentComplete (($CurrentIP / $IPAddress.Count) * 100)
+            Write-Progress -Activity "Searching: $IP" -Status "$CurrentIP of $($IPAddress.Count)" -PercentComplete (($CurrentIP / $IPAddress.Count) * 100)
             try {
                 Write-Verbose 'Sending Request to http://ip-api.com/json/'
                 Invoke-RestMethod -Method Get -Uri "http://ip-api.com/json/$IP" -ErrorAction SilentlyContinue | Foreach-object {
