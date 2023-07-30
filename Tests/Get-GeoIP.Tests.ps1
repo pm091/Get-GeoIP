@@ -1,5 +1,5 @@
 $PSVersion = $PSVersionTable.PSVersion.Major
-. $env:BHProjectPath\Get-GeoIP\Get-GeoIP.ps1
+. 'C:\projects\get-geoip\Get-GeoIP\Get-GeoIP.ps1'
 
 #Unit test example
 Describe "Get-GeoIP PS$PSVersion Unit tests" {
