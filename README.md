@@ -2,6 +2,6 @@
 
 # Get-GeoIP
 
-Find Geo IP Data with PowerShell
+Lookup Geo IP Data with PowerShell
 
 ![alt tag](https://github.com/pm091/Get-GeoIP/blob/master/GeoIP.gif)
