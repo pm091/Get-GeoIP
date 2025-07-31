@@ -9,6 +9,8 @@ function Get-GeoIP {
     .Example
     Get-GeoIP -IPAddress 8.8.8.8
     .Example
+    Get-GeoIP -IPAddress 2001:4860:4860::8888
+    .Example
     $IP = Get-NetStat | select -ExpandProperty ForeignAddressIP | Where-Object {$_ -notlike '`['}
     Get-GeoIP -IPAddress $IP
     .Example
@@ -19,7 +21,7 @@ function Get-GeoIP {
     param(
         [Parameter (Mandatory = $true,
             ValueFromPipeline = $false)]
-        [ValidatePattern("(?:(?:1\d\d|2[0-5][0-5]|2[0-4]\d|0?[1-9]\d|0?0?\d)\.){3}(?:1\d\d|2[0-5][0-5]|2[0-4]\d|0?[1-9]\d|0?0?\d)")]
+        [ValidatePattern("((?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}|(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){1,7}:|:(?::[0-9a-fA-F]{1,4}){1,7})")]
         [string[]]$IPAddress
     )
     begin {
